@@ -1,4 +1,4 @@
-package com.example.saludapp
+package com.example.saludapp.viewmodel
 
 import android.app.Application
 import androidx.compose.runtime.getValue
@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.saludapp.PerfilDataStore
 import kotlinx.coroutines.launch
 
 class SaludViewModel(application: Application) : AndroidViewModel(application) {
@@ -64,5 +65,22 @@ class SaludViewModel(application: Application) : AndroidViewModel(application) {
             imc in 25.0..29.9 -> "Sobrepeso"
             else -> "Obesidad"
         }
+    }
+
+    fun obtenerMensajeIMC(imc: Double): String {
+        return when {
+            imc == 0.0 -> "Ingresa tus datos para calcular"
+            imc < 18.5 -> "¡Cuidado! Tu peso es bajo"
+            imc in 18.5..24.9 -> "¡Excelente! Mantén tu estilo de vida"
+            imc in 25.0..29.9 -> "Ten cuidado, estás en sobrepeso"
+            else -> "Atención, consulta a un médico"
+        }
+    }
+
+    fun calcularPesoIdeal(): Double {
+        val estaturaCm = estatura.toDoubleOrNull() ?: 0.0
+        if (estaturaCm <= 0.0) return 0.0
+        val estaturaMetros = estaturaCm / 100
+        return 22.5 * (estaturaMetros * estaturaMetros)
     }
 }

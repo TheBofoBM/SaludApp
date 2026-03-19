@@ -25,8 +25,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.saludapp.SaludViewModel
-import com.example.saludapp.ui.theme.SaludAppTheme
+import com.example.saludapp.viewmodel.SaludViewModel
+import com.example.saludapp.ui.theme.*
 
 @Composable
 fun FormularioScreen(viewModel: SaludViewModel, modifier: Modifier = Modifier) {

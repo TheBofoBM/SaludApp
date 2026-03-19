@@ -1,6 +1,6 @@
 package com.example.saludapp.pagina2
 
 import androidx.compose.ui.Modifier
-import com.example.saludapp.SaludViewModel
+import com.example.saludapp.viewmodel.SaludViewModel
 
 fun ConsejosScreen(viewModel: SaludViewModel, modifier: Modifier) {}
