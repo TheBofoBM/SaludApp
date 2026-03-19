@@ -16,11 +16,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-// Colores personalizados
-private val PrimaryPurple = Color(0xFF6B4EFF) // Morado del logo
-private val LightBackground = Color(0xFFF8F9FE) // Lila muy claro
-private val DarkBackground = Color(0xFF121212) // Gris casi negro
-private val DarkSurface = Color(0xFF1E1E2E) // Gris azulado para las tarjetas
+private val PrimaryPurple = Color(0xFF6B4EFF)
+private val LightBackground = Color(0xFFF8F9FE)
+private val DarkBackground = Color(0xFF121212)
+private val DarkSurface = Color(0xFF1E1E2E)
 
 private val DarkColorScheme = darkColorScheme(
     primary = PrimaryPurple,
@@ -72,7 +71,7 @@ fun SaludAppTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = AppTypography,
         content = content
     )
 }

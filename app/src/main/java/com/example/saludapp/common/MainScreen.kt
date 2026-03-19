@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.TrendingUp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -20,7 +21,7 @@ import com.example.saludapp.pagina1.FormularioScreen
 import com.example.saludapp.pagina2.ConsejosScreen
 import com.example.saludapp.pagina3.ResultadoScreen
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.saludapp.SaludViewModel
+import com.example.saludapp.viewmodel.SaludViewModel
 
 @Composable
 fun MainScreen() {
@@ -46,7 +47,7 @@ fun MainScreen() {
                 NavigationBarItem(
                     selected = selectedTab == 2,
                     onClick = { selectedTab = 2 },
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Progreso") },
+                    icon = { Icon(Icons.Default.TrendingUp, contentDescription = "Progreso") },
                     label = { Text("Progreso") }
                 )
             }
