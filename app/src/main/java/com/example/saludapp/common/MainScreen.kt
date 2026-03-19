@@ -19,10 +19,14 @@ import androidx.compose.ui.Modifier
 import com.example.saludapp.pagina1.FormularioScreen
 import com.example.saludapp.pagina2.ConsejosScreen
 import com.example.saludapp.pagina3.ResultadoScreen
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.saludapp.SaludViewModel
 
 @Composable
 fun MainScreen() {
     var selectedTab by remember { mutableStateOf(0) }
+
+    val viewModel: SaludViewModel = viewModel()
 
     Scaffold(
         bottomBar = {
@@ -50,16 +54,17 @@ fun MainScreen() {
     ) { innerPadding ->
         ContentArea(
             selectedTab = selectedTab,
+            viewModel = viewModel,
             modifier = Modifier.padding(innerPadding)
         )
     }
 }
 
 @Composable
-fun ContentArea(selectedTab: Int, modifier: Modifier = Modifier) {
+fun ContentArea(selectedTab: Int, viewModel: SaludViewModel, modifier: Modifier = Modifier) {
     when (selectedTab) {
-        0 -> FormularioScreen(modifier)
-        1 -> ConsejosScreen(modifier)
-        2 -> ResultadoScreen(modifier)
+        0 -> FormularioScreen(viewModel = viewModel, modifier = modifier)
+        1 -> ConsejosScreen(viewModel = viewModel, modifier = modifier)
+        2 -> ResultadoScreen(viewModel = viewModel, modifier = modifier)
     }
 }
